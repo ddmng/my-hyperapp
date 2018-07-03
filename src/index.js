@@ -1,4 +1,6 @@
 import { h, app } from "hyperapp"
+import 'bootstrap'
+import './scss/index.scss'
 
 const state = {
   count: 0
@@ -12,8 +14,8 @@ const actions = {
 const view = (state, actions) => (
   <div>
     <h1>{state.count}</h1>
-    <button onclick={() => actions.down(1)}>-</button>
-    <button onclick={() => actions.up(3)}>+</button>
+    <button class="btn btn-primary" onclick={() => actions.down(1)}>-</button>
+    <button class="btn btn-warning" onclick={() => actions.up(3)}>+</button>
   </div>
 )
 
