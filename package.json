@@ -30,6 +30,7 @@
     "bootstrap": "^4.1.1",
     "hyperapp": "^1.2.6",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "startbootstrap-resume": "^4.0.0"
   }
 }
