@@ -1,6 +1,8 @@
 import { h, app } from "hyperapp"
 import 'bootstrap'
 import './scss/index.scss'
+import './resume'
+
 
 const state = {
   count: 0,
