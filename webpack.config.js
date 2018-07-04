@@ -7,18 +7,15 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
           }
-        ]
+        }]
       },
       {
         test: /\.(scss)$/,
@@ -41,8 +38,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      }
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/', // where the fonts will go 
+          }
+        }]
+      },
     ]
   }
 };

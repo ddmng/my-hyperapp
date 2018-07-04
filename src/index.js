@@ -16,9 +16,9 @@ const actions = {
 const view = (state, actions) => (
   <div>
     <h1>{state.count}</h1>
-    <button class="btn btn-primary" onclick={() => actions.down(1)}>-</button>
-    <button class="btn btn-warning" onclick={() => actions.up(3)}>+</button>
-    <button class="btn btn-default" onclick={() => actions.toggle()}>toggle</button>
+    <button class="btn btn-primary" onclick={() => actions.down(1)}><span class="fa fa-minus"></span></button>
+    <button class="btn btn-warning" onclick={() => actions.up(3)}><span class="fa fa-plus"></span></button>
+    <button class="btn btn-default" onclick={() => actions.toggle()}><span class="fa fa-stop"></span></button>
     <h2>{ state.globalBoolean?"True":"False" }</h2>
   </div>
 )
