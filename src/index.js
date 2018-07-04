@@ -4,7 +4,7 @@ import './scss/index.scss'
 import { List } from 'immutable'
 
 const state = {
-  todos: List([]),
+  todos: [],
   entering: ""
 }
 
@@ -12,13 +12,16 @@ const actions = {
   add: value => state => {
     console.log("prev state: ", state)
     console.log("cur value: ", value)
-    return ({ todos: state.todos.insert(0, value), entering: "" })
+    return ({ todos: [...state.todos, value], entering: "" })
   },
   updateEntering: value => state => {
     console.log("adding: ", value)
     return ({ todos: state.todos, entering: value })
   }
 }
+export const TodoItem = ({actions, todo}) => (
+  <li>{todo.text}</li>
+)
 
 const view = (state, actions) => (
   <div>
@@ -29,7 +32,8 @@ const view = (state, actions) => (
     <div>
       <h1>Todo list</h1>
       <ul>
-        { state.todos.map( (x) => <li>testo</li>) }
+        { state.todos &&
+          state.todos.map( (x) => <TodoItem todo={x}/>) }
       </ul>
     </div>
   </div>
