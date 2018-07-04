@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config webpack.config.js --mode=production",
-    "serve": "$(npm bin)/webpack-dev-server --host 0.0.0.0 --progress --colors --mode=development"
+    "serve": "$(npm bin)/webpack-dev-server --port 8081 --host 0.0.0.0 --progress --colors --mode=development"
   },
   "keywords": [],
   "author": "",
