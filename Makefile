@@ -9,3 +9,9 @@ run: build
 
 shell: build
 	docker run -ti --rm -v $$(pwd)/:/ngapp rdaneel/my-hyperapp:dev ash
+
+dist: build
+	docker run -ti --rm -v $$(pwd)/:/ngapp rdaneel/my-hyperapp:dev npm run build
+
+serve: build npmi dist
+	docker run -ti --rm -v $$(pwd)/dist:/usr/share/nginx/html -p 8082:80 nginx:alpine nginx -g 'daemon off;'

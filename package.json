@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack --config webpack.config.js --mode=production",
+    "build": "cp *html dist/ && npx webpack --config webpack.config.js --mode=production",
     "serve": "$(npm bin)/webpack-dev-server --port 8081 --host 0.0.0.0 --progress --colors --mode=development"
   },
   "keywords": [],
-  "author": "",
+  "author": "Daniele Di Minica",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
@@ -28,9 +28,13 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "file-loader": "^1.1.11",
+    "font-awesome": "^4.7.0",
     "hyperapp": "^1.2.6",
     "jquery": "^3.3.1",
+    "jquery-easing": "0.0.1",
     "popper.js": "^1.14.3",
+    "simple-line-icons": "^2.4.1",
     "startbootstrap-resume": "^4.0.0"
   }
 }
