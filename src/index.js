@@ -1,16 +1,23 @@
 import { h, app } from "hyperapp";
 import "bootstrap";
 import "./scss/index.scss";
-const { Map, List } = require("immutable");
 
 const state = {
   todos: [],
   entering: ""
-};
+}
 
 const actions = {
   add: value => state => {
-    return { todos: state.todos.concat(value), entering: "" };
+    if(!value)
+      return state
+    const elem = { 
+      id: uniqueId(state.todos),
+      value: value,
+      done: false
+    }
+
+    return { todos: state.todos.concat(elem), entering: "" };
   },
   updateEntering: value => state => {
     return { todos: state.todos, entering: value };
@@ -18,7 +25,7 @@ const actions = {
   delete: value => state => {
     return { todos: state.todos.filter(el => el.id != value) };
   }
-};
+}
 
 /**
  * Returns a new uniqueId from the todos list picking the max id value from the array
@@ -32,16 +39,32 @@ const uniqueId = todos => {
   } else {
     return 0;
   }
-};
+}
 
-const TodoItem = ({ id, value, done, toggle }) => (
+export const TodoItem =  ({ id, value, done, toggle }) => (
   <li>
     {value}
     <button class="btn btn-danger" onclick={() => toggle(id)}>
       <span class="fa fa-minus" />
     </button>
   </li>
-);
+)
+
+export const TodoList = () => (state, actions) => (
+  <div>
+  <h1>Todo list</h1>
+  <ul>
+    {state.todos.map(x => (
+      <TodoItem
+        id={x.id}
+        value={x.value}
+        done={x.done}
+        toggle={actions.delete}
+      />
+    ))}
+  </ul>
+  </div>
+)
 
 const view = (state, actions) => (
   <div>
@@ -55,29 +78,13 @@ const view = (state, actions) => (
       <button
         class="btn btn-default"
         onclick={() =>
-          actions.add({
-            id: uniqueId(state.todos),
-            value: state.entering,
-            done: false
-          })
+          actions.add(state.entering)
         }
       >
         <span class="fa fa-plus" />
       </button>
     </div>
-    <div>
-      <h1>Todo list</h1>
-      <ul>
-        {state.todos.map(x => (
-          <TodoItem
-            id={x.id}
-            value={x.value}
-            done={x.done}
-            toggle={actions.delete}
-          />
-        ))}
-      </ul>
-    </div>
+        <TodoList />
   </div>
 );
 
