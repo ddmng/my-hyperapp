@@ -27,9 +27,6 @@ const actions = {
     return { todos: state.todos.filter( (x) => x.id != value.id ), entering: state.entering }
   }
 }
-export const TodoItem = ({actions, todo}) => (
-  <li>{todo.text}</li>
-)
 
 const TodoItem = ( { item } ) => (state, actions) => (
   <li>
