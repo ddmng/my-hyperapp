@@ -1,41 +1,59 @@
 import { h, app } from "hyperapp"
 import 'bootstrap'
 import './scss/index.scss'
-import { List } from 'immutable'
 
 const state = {
   todos: [],
   entering: ""
 }
 
+const newId = (todos) => {
+  const reducer = (acc, value) => (acc >= value ? acc : value)
+  if (todos.length == 0)
+    return 0
+  else
+    return 1 + todos.reduce(reducer)
+}
+
 const actions = {
   add: value => state => {
-    console.log("prev state: ", state)
-    console.log("cur value: ", value)
-    return ({ todos: [...state.todos, value], entering: "" })
+    const v = { id: newId(state.todos), text: value, done: false }
+    return ({ todos: state.todos.concat( [ v ]), entering: "" })
   },
   updateEntering: value => state => {
-    console.log("adding: ", value)
     return ({ todos: state.todos, entering: value })
+  },
+  remove: value => state => {
+    return { todos: state.todos.filter( (x) => x.id != value.id ), entering: state.entering }
   }
 }
 export const TodoItem = ({actions, todo}) => (
   <li>{todo.text}</li>
 )
 
+const TodoItem = ( { item } ) => (state, actions) => (
+  <li>
+    { item.text } <button class="btn btn-danger" onclick={() => actions.remove(item)}><i class="fa fa-minus"></i></button>
+  </li>
+)
+
+
+const TodoList = () =>  (state, actions) => (
+  <div>
+  <h1>Todo list</h1>
+  <ul>
+    { state.todos.map( (x) => <TodoItem item={x} />) }
+  </ul>
+</div>
+)
+
 const view = (state, actions) => (
   <div>
     <div>
-      <input type="text" class="" onchange={(e) => actions.updateEntering(e.target.value)} value={state.entering}></input>
-      <button class="btn btn-default" onclick={() => actions.add({ id: 999, text: state.entering, done: false })}> <span class="fa fa-plus"></span> </button>
+      <input type="text" class="" oninput={(e) => actions.updateEntering(e.target.value)} value={state.entering}></input>
+      <button class="btn btn-default" onclick={() => actions.add(state.entering)}> <span class="fa fa-plus"></span> </button>
     </div>
-    <div>
-      <h1>Todo list</h1>
-      <ul>
-        { state.todos &&
-          state.todos.map( (x) => <TodoItem todo={x}/>) }
-      </ul>
-    </div>
+    <TodoList  />
   </div>
 )
 
