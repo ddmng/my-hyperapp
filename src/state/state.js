@@ -1,3 +1,4 @@
+import { h } from "hyperapp";
 
 export const state = {
     todos: [],
@@ -8,3 +9,14 @@ export const state = {
       user: ""
     }
   };
+
+
+export const StateContents = () => (state, actions) => (
+  <div>
+    <hr/>
+    <h3>Current state contents</h3>
+    <textarea cols="80" rows="10">
+        { JSON.stringify(state, null, '\t') }
+    </textarea>
+  </div>
+)

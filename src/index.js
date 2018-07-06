@@ -3,7 +3,7 @@ import "bootstrap";
 import "./scss/index.scss";
 import {LoginDialog} from "./auth"
 import {TodoList } from "./todo"
-import { state } from "./state/state.js"
+import { state, StateContents } from "./state/state.js"
 import { actions } from "./state/actions"
 
 const DEBUG = true
@@ -32,15 +32,6 @@ const MainPage = () => (state, actions) => (
 );
 
 
-const StateContents = () => (state, actions) => (
-  <div>
-    <hr/>
-    <h3>Current state contents</h3>
-    <textarea cols="80" rows="10">
-        { JSON.stringify(state, null, '\t') }
-    </textarea>
-  </div>
-)
 
 /**
  * Main view
