@@ -1,14 +1,15 @@
 import { h } from "hyperapp";
 
 export const state = {
-    auth: {
-      loggedin: false,
-      loginError: false ,
-      email: "aaa@aaa.com",
-      password: "qwerty",
-      loggingIn: false
-    }
-  };
+  devices: [],
+  auth: {
+    loggedin: false,
+    loginError: false ,
+    email: "aaa@aaa.com",
+    password: "qwerty",
+    loggingIn: false
+  }
+};
 
 
 export const StateContents = () => (state, actions) => (
