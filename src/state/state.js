@@ -6,7 +6,8 @@ export const state = {
     auth: {
       loggedin: false,
       loginError: "",
-      user: ""
+      email: "",
+      password: ""
     }
   };
 

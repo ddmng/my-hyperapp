@@ -24,6 +24,14 @@ export const actions = {
     },
     loginSuccess: value => state => {
       return {...state, auth: {...state.auth, loggedin: true} }
+    },
+    auth: {
+      updateEmail: value => state => {
+        return {...state, email: value}
+      },
+      updatePassword: value => state => {
+        return {...state, password: value}
+      }
     }
   };
   
