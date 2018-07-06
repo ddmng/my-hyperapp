@@ -1,8 +1,6 @@
 import { h } from "hyperapp";
 
 export const state = {
-    todos: [],
-    entering: "",
     auth: {
       loggedin: false,
       loginError: false ,

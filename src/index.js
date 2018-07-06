@@ -2,7 +2,6 @@ import { h, app } from "hyperapp";
 import "bootstrap";
 import "./scss/index.scss";
 import {LoginDialog} from "./auth"
-import { TodoPage } from "./todo"
 import { state, StateContents } from "./state/state.js"
 import { actions } from "./state/actions"
 
@@ -11,7 +10,6 @@ const DEBUG = true
 const MainPage = () => (state, actions) => (
   <div>
     <h1>This is the main page</h1>
-    <TodoPage />
   </div>
 )
 
