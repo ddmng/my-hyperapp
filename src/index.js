@@ -10,6 +10,7 @@ const DEBUG = true
 
 const MainPage = () => (state, actions) => (
   <div>
+    <h1>This is the main page</h1>
     <TodoPage />
   </div>
 )

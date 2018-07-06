@@ -5,9 +5,9 @@ export const state = {
     entering: "",
     auth: {
       loggedin: false,
-      loginError: "",
-      email: "",
-      password: ""
+      loginError: false ,
+      email: "aaa@aaa.com",
+      password: "qwerty",
     }
   };
 
