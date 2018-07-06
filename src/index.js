@@ -10,7 +10,10 @@ const DEBUG = true
 const MainPage = () => (state, actions) => (
   <div>
     <h1>This is the main page</h1>
-    <button class="btn btn-danger" onclick={() => actions.auth.logout() } >Logout</button>
+    <button class="btn btn-danger" onclick={() => actions.auth.logout() } >
+    <i class="fa fa-sign-out"></i>
+    Logout
+    </button>
   </div>
 )
 

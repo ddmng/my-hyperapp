@@ -14,19 +14,21 @@ export const actions = {
         return {...state, password: value}
       },
       loginSuccess: () => state => {
-        return {...state, loggedin: true, loginError: false}
+        return {...state, loggedin: true, loginError: false, loggingIn: false}
       },
       loginFailure: () => state => {
-        return {...state, loggedin: false, loginError: true}
+        return {...state, loggedin: false, loginError: true,  loggingIn: false}
       },
       login: ({email, password}) => (state, actions) => {
+        actions.loggingIn(true)
         doLogin(email, password)
           .then(actions.loginSuccess)
           .catch(actions.loginFailure)
       },
       logout: () => state => {
         return {...state, loggedin: false}
-      }
+      },
+      loggingIn: (value) => state => ({...state, loggingIn: value})
     }
   };
   

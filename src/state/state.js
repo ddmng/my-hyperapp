@@ -6,6 +6,7 @@ export const state = {
       loginError: false ,
       email: "aaa@aaa.com",
       password: "qwerty",
+      loggingIn: false
     }
   };
 
