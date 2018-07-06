@@ -23,6 +23,9 @@ export const actions = {
         doLogin(email, password)
           .then(actions.loginSuccess)
           .catch(actions.loginFailure)
+      },
+      logout: () => state => {
+        return {...state, loggedin: false}
       }
     }
   };
