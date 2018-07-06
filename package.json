@@ -18,6 +18,7 @@
     "babel-loader": "^8.0.0-beta.4",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "css-loader": "^0.28.11",
+    "exports-loader": "^0.7.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
     "sass-loader": "^7.0.3",
@@ -27,13 +28,16 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "@coreui/coreui": "^2.0.3",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "file-loader": "^1.1.11",
     "font-awesome": "^4.7.0",
     "hyperapp": "^1.2.6",
     "jquery": "^3.3.1",
+    "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.3",
+    "precss": "^3.1.2",
     "qs": "^6.5.2"
   }
 }

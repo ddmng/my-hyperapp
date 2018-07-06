@@ -5,7 +5,6 @@ import { doLogin } from "../rest";
  * Hyperapp Actions
  */
 export const actions = {
-    // TODO move this code outside action
     auth: {
       updateEmail: value => state => {
         return {...state, email: value}
