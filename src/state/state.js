@@ -13,8 +13,9 @@ export const state = {
 
 export const StateContents = () => (state, actions) => (
   <div>
+    <br/>
+    <br/>
     <hr/>
-    <h3>Current state contents</h3>
     <textarea cols="80" rows="10">
         { JSON.stringify(state, null, '\t') }
     </textarea>

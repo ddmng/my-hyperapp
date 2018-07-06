@@ -1,26 +1,13 @@
 import { h, app } from "hyperapp";
+
 import "bootstrap";
 import "@coreui/coreui"
 import "./scss/index.scss";
-import {LoginDialog} from "./auth"
-import { state, StateContents } from "./state/state.js"
+import { LoginDialog } from "./layout/login"
+import { state } from "./state/state"
 import { actions } from "./state/actions"
-
-const DEBUG = true
-
-const MainPage = () => (state, actions) => (
-  <div class="container-fluid">
-  
-    <div>
-      <h1>Devices list</h1>
-      <button class="btn btn-danger" onclick={() => actions.auth.logout() } >
-      <i class="fa fa-sign-out"></i>
-      Logout
-      </button>
-    </div>
-  </div>
-)
-
+import { PageHeader } from "./layout/header.js"
+import { MainPage } from "./layout/contents.js"
 
 /**
  * Main view
@@ -31,15 +18,14 @@ const view = (state, actions) => {
   if (state.auth.loggedin) {
     return (
       <div>
+        <PageHeader/>
         <MainPage />
-        { DEBUG && <StateContents/>}
       </div>
       )
   } else {
     return (
       <div>
         <LoginDialog />
-        { DEBUG && <StateContents/>}
       </div>
       )
   }
