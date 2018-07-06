@@ -4,15 +4,9 @@ import "./scss/index.scss";
 import {LoginDialog} from "./auth"
 import {TodoList } from "./todo"
 import { state } from "./state/state.js"
-
 import { actions } from "./state/actions"
 
-/**
- * Backend URLs
- */
-const urls = {
-  login: "http://localhost:4000/api/users/sign_in"
-}
+const DEBUG = true
 
 /**
  * Main page after Login Success
@@ -27,7 +21,7 @@ const MainPage = () => (state, actions) => (
         value={state.entering}
       />
       <button
-        class="btn btn-default"
+        class="btn btn-success"
         onclick={() => actions.add(state.entering)}
       >
         <span class="fa fa-plus" />
@@ -38,6 +32,16 @@ const MainPage = () => (state, actions) => (
 );
 
 
+const StateContents = () => (state, actions) => (
+  <div>
+    <hr/>
+    <h3>Current state contents</h3>
+    <textarea cols="80" rows="10">
+        { JSON.stringify(state, null, '\t') }
+    </textarea>
+  </div>
+)
+
 /**
  * Main view
  * @param {*} state 
@@ -45,9 +49,19 @@ const MainPage = () => (state, actions) => (
  */
 const view = (state, actions) => {
   if (state.auth.loggedin) {
-    return <div><MainPage /></div>
+    return (
+      <div>
+        <MainPage />
+        { DEBUG && <StateContents/>}
+      </div>
+      )
   } else {
-    return <div><LoginDialog /></div>
+    return (
+      <div>
+        <LoginDialog />
+        { DEBUG && <StateContents/>}
+      </div>
+      )
   }
 };
 
