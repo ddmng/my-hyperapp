@@ -84,6 +84,9 @@ export const TodoList = () => (state, actions) => (
   </div>
 );
 
+/**
+ * Login dialog Component
+ */
 const LoginDialog = () => (state, actions) => (
   <div>
     <input type="text" value="" />
@@ -92,6 +95,9 @@ const LoginDialog = () => (state, actions) => (
   </div>
 );
 
+/**
+ * Main page after Login Success
+ */
 const MainPage = () => (state, actions) => (
   <div>
     <div>
@@ -112,6 +118,12 @@ const MainPage = () => (state, actions) => (
   </div>
 );
 
+
+/**
+ * Main view
+ * @param {*} state 
+ * @param {*} actions 
+ */
 const view = (state, actions) => {
   if (state.auth.loggedin) {
     return <div><MainPage /></div>
