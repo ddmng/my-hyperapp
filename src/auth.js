@@ -1,7 +1,6 @@
 import { h } from "hyperapp";
 import { state } from "./state/state.js"
 import { actions } from "./state/actions"
-import { doLogin } from "./rest"
 
 /**
  * Login dialog Component
