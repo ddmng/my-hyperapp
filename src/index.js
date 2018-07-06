@@ -3,16 +3,7 @@ import "bootstrap";
 import "./scss/index.scss";
 import {LoginDialog} from "./auth"
 import {TodoList } from "./todo"
-
-const state = {
-  todos: [],
-  entering: "",
-  auth: {
-    loggedin: false,
-    loginError: "",
-    user: ""
-  }
-};
+import { state } from "./state/state.js"
 
 import { actions } from "./state/actions"
 
