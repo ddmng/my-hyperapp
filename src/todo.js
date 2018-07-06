@@ -24,3 +24,26 @@ export const TodoItem = ({ id, value, done, toggle }) => (
       </ul>
     </div>
   );
+
+  /**
+ * Todo management
+ */
+export const TodoPage = () => (state, actions) => (
+  <div>
+    <div>
+      <input
+        type="text"
+        class=""
+        onchange={e => actions.updateEntering(e.target.value)}
+        value={state.entering}
+      />
+      <button
+        class="btn btn-success"
+        onclick={() => actions.add(state.entering)}
+      >
+        <span class="fa fa-plus" />
+      </button>
+    </div>
+    <TodoList />
+  </div>
+);
