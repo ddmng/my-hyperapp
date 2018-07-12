@@ -1,7 +1,10 @@
 import { h } from "hyperapp";
 
 export const state = {
-  devices: [],
+  devices: {
+    list: [],
+    loading: false
+  },
   auth: {
     loggedin: false,
     loginError: false ,

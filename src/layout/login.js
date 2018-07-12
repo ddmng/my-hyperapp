@@ -22,7 +22,8 @@ export const LoginDialog = () => (state, actions) => (
               <input type="email" 
                       class="form-control" 
                       value={state.auth.email} 
-                      onchange={(e) => actions.auth.updateEmail(e.target.value)} />
+                      onchange={(e) => actions.auth.updateEmail(e.target.value)}
+                      oncreate={element => element.focus()} />
             </div>
             <div class="col">
               <input type="password" 
