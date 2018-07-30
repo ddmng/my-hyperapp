@@ -1,5 +1,6 @@
 # my-hyperapp
 Testing hyperapp, seems cool :D
+See https://github.com/hyperapp/hyperapp
 
 ## How to start it
 
